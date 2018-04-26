@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ES">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="./P6_ej2.js"></script>
+</head>
+<body>
+	<script>
+	//Vemos como cargar un jquery desde consola: http://debuggernote.blogspot.com.es/2017/02/cargar-jquery-consola-navegador.html
+	var jq = document.createElement('script');
+	jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+	document.getElementsByTagName('head')[0].appendChild(jq);
+	//Generamos la variable inicializacion que es una función
+	var inicializacion = function () {
+    //Modificamos los elementos del body
+	var body = $('body *')
+        .css("color", "#eeeeee")
+        .css("background-color", "white")
+        .css("border", "none");
+    //Modificamos los elementos "a"
+	var a = $("a")
+		.css("background-color", "red")
+		.css("border-radius", "12px")
+		.css("color", "white");
+	}
+	//Cuando el documento esté listo, ejecutamos la variable inicializacion
+	$(document).ready(inicializacion);
+	</script>
+	
+</body>
+</html>

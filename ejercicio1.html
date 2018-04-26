@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ES">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<script>
+//Vemos como cargar un jquery desde consola: http://debuggernote.blogspot.com.es/2017/02/cargar-jquery-consola-navegador.html
+	var jq = document.createElement('script');
+	jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+	document.getElementsByTagName('head')[0].appendChild(jq);
+//Definimos una variable donde almacenamos que vamos a buscar
+	var link=$('a');
+	var listado=[];
+//Realizamos la búsqueda en el DOM y ejecutamos la función	
+	link.each(listar);
+
+//Definimos qué hará nuestra función de búsqueda
+	function listar() {
+		
+		var a = this;
+//Definimos un nuevo objeto
+		var links = new Object();
+//Añadimos al objeto 
+		links.nombre=$(a).text();
+		links.url=a.getAttribute('href');
+		
+		listado.push(links);
+	}
+				
+// Una vez hecho el listado, lo mostramos
+
+var resultado=JSON.stringify(listado);
+console.log(resultado);
+
+</script>
+</body>
+</html>
